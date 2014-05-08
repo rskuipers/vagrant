@@ -1,0 +1,57 @@
+server {
+    listen 80;
+    listen [::]:80 ipv6only=on;
+
+    server_name .lvh.me;
+
+    set $basepath "/vagrant/www";
+
+    set $domain $host;
+    if ($domain ~ "^(.*)\.lvh.me$") {
+        set $domain $1;
+    }
+    set $rootpath "${domain}";
+    if (-d $basepath/$domain/public) {
+        set $rootpath "${domain}/public";
+    }
+    if (-d $basepath/$domain/httpdocs) {
+        set $rootpath "${domain}/httpdocs";
+    }
+    if (-d $basepath/$domain/web) {
+        set $rootpath "${domain}/web";
+    }
+    if (-f $basepath/$domain/index.php) {
+        set $rootpath $domain;
+    }
+    if (-f $basepath/$domain/index.html) {
+        set $rootpath $domain;
+    }
+
+    root $basepath/$rootpath;
+
+    index index.php app_dev.php app.php index.html;
+
+    location / {
+        index index.php
+        error_page 404 = @indexphp;
+    }
+
+    location @indexphp {
+        rewrite ^(.*)$ /index.php$1;
+    }
+
+    location ~ ^(.+\.php)(?:/.+)?$ {
+        expires off;
+        fastcgi_pass unix:/var/run/php5-fpm.sock;
+        fastcgi_index index.php;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        fastcgi_split_path_info ^(.+\.php)(/.*)$;
+        include fastcgi_params;
+    }
+
+    try_files $uri $uri/ /index.php?$args;
+
+    location ~ /\.ht {
+        deny all;
+    }
+}

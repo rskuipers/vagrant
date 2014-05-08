@@ -1,0 +1,5 @@
+- name: Install nginx
+  apt: name=nginx state=present
+- name: Configure nginx
+  template: src=vhost.j2 dest=/etc/nginx/sites-available/default
+  notify: restart nginx
