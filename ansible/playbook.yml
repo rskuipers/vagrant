@@ -6,5 +6,6 @@
     - include: tasks/mysql.yml
     - include: tasks/mailcatcher.yml
     - include: tasks/n98-magerun.yml
+    - include: tasks/modman.yml
   handlers:
     - include: handlers/handlers.yml
