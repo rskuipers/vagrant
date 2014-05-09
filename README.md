@@ -1,11 +1,12 @@
 # Vagrant Development Setup
-This is a vagrant development setup that I use for developing websites. It's an easy boilerplate to start from.
+
+This is a vagrant development setup that I use for, well... development. It's an easy boilerplate to start from.
 
 ## Packages
 
 - Ubuntu 14.04
 - nginx
-- PHP5.5
+- PHP 5.5
 - MySQL
 - Mailcatcher
 - n98-magerun
