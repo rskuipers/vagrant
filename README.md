@@ -14,14 +14,14 @@ This is a vagrant development setup that I use for, well... development. It's an
 
 ## Usage
 
-This setup uses *lvh.me* which is a domainname which always refers to localhost.
+This setup uses *xip.io* which is a domainname which always refers to the IP put as a subdomain.
 In order to make your project accessible it needs to use one of the following directory structures:
 
     /vagrant/www/example/web
     /vagrant/www/example/public
     /vagrant/www/example
 
-Then you can access it using the following URL: http://example.lvh.me:8080/
+Then you can access it using the following URL: http://example.192.168.33.10.xip.io/
 
 ## Mailcatcher
 
