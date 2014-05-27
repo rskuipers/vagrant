@@ -1,5 +1,6 @@
 - hosts: all
   tasks:
+    - include: tasks/swap.yml
     - include: tasks/essential.yml
     - include: tasks/php.yml
     - include: tasks/nginx.yml
