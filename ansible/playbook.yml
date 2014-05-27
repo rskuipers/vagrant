@@ -3,9 +3,12 @@
     - include: tasks/essential.yml
     - include: tasks/php.yml
     - include: tasks/nginx.yml
+    - include: tasks/nodejs.yml
     - include: tasks/mysql.yml
     - include: tasks/mailcatcher.yml
     - include: tasks/n98-magerun.yml
     - include: tasks/modman.yml
+    - include: tasks/composer.yml
+    - include: tasks/git.yml
   handlers:
     - include: handlers/handlers.yml

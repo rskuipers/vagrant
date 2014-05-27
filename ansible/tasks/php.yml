@@ -13,6 +13,7 @@
     - php5-curl
     - php5-xsl
     - php5-mysql
+    - php5-intl
   notify: restart php
 - name: Enable php5-mcrypt
   command: php5enmod mcrypt creates=/etc/php5/fpm/conf.d/20-mcrypt.ini

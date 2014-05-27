@@ -19,7 +19,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   config.vm.post_up_message = <<MSG
-Mailcatcher: http://192.168.33.10:1080/
-PHP Info: http://info.192.168.33.10.xip.io/
+URLs
+  Mailcatcher: http://192.168.33.10:1080/
+  PHP Info: http://info.192.168.33.10.xip.io/
+
+MySQL
+  User: vagrant
+  Password: vagrant
 MSG
 end

@@ -23,6 +23,11 @@ In order to make your project accessible it needs to use one of the following di
 
 Then you can access it using the following URL: http://example.192.168.33.10.xip.io/
 
+## MySQL
+
+User: vagrant
+Password: vagrant
+
 ## Mailcatcher
 
 Mailcatcher is accessible at: http://192.168.33.10:1080/
