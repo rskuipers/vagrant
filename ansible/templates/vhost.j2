@@ -2,12 +2,12 @@ server {
     listen 80;
     listen [::]:80 ipv6only=on;
 
-    server_name .lvh.me;
+    server_name .xip.io;
 
     set $basepath "/vagrant/www";
 
     set $domain $host;
-    if ($domain ~ "^(.*)\.lvh.me$") {
+    if ($domain ~ "^(.*)\.(\d+\.\d+\.\d+\.\d+)\.xip.io$") {
         set $domain $1;
     }
     set $rootpath "${domain}";
