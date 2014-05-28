@@ -25,8 +25,9 @@ Then you can access it using the following URL: http://example.192.168.33.10.xip
 
 ## MySQL
 
-User: vagrant
-Password: vagrant
+**User:** vagrant
+
+**Password:** vagrant
 
 ## Mailcatcher
 
