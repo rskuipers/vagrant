@@ -6,3 +6,5 @@
   service: name=mysql state=restarted
 - name: start mailcatcher
   service: name=mailcatcher state=started
+- name: update tzdata
+  command: dpkg-reconfigure --frontend noninteractive tzdata
