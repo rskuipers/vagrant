@@ -1,11 +1,18 @@
 - name: Install nginx
   apt: name=nginx state=present
-- name: Configure nginx
+- name: Configure nginx user
   lineinfile:
     state=present
     dest=/etc/nginx/nginx.conf
     regexp='^user\s+.+;\s*$'
     line='user vagrant;'
+  notify: restart nginx
+- name: Configure nginx sendfile
+  lineinfile:
+    state=present
+    dest=/etc/nginx/nginx.conf
+    regexp='^sendfile\s+.+;\s*$'
+    line='sendfile off;'
   notify: restart nginx
 - name: Configure nginx vhost
   template: src=vhost.j2 dest=/etc/nginx/sites-available/default
