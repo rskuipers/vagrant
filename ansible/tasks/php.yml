@@ -3,19 +3,8 @@
 - name: Configure php5-fpm
   template: src=php.j2 dest=/etc/php5/fpm/php.ini
   notify: restart php
-- name: Configure php5-fpm user
-  lineinfile:
-    state=present
-    dest=/etc/php5/fpm/pool.d/www.conf
-    regexp='^user\s*=\s*'
-    line='user = vagrant'
-  notify: restart php
-- name: Configure php5-fpm group
-  lineinfile:
-    state=present
-    dest=/etc/php5/fpm/pool.d/www.conf
-    regexp='^group\s*=\s*'
-    line='group = vagrant'
+- name: Configure php5-fpm permissions
+  template: src=www.j2 dest=/etc/php5/fpm/pool.d/www.conf
   notify: restart php
 - name: Install aditional php packages
   apt: name={{ item }} state=present
